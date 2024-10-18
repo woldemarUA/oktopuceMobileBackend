@@ -30,4 +30,12 @@ app.get('/', (req, res) => {
   }
 });
 
-server.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
+if (typeof PhusionPassenger !== 'undefined') {
+  server.listen('passenger', () => {
+    console.log('Server running with Phusion Passenger');
+  });
+} else {
+  server.listen(PORT, () =>
+    console.log(`Server is listeting at http://localhost:${PORT}`)
+  );
+}
