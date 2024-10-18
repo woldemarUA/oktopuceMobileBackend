@@ -17,7 +17,7 @@ router.use('/forms', formsConfigRouter);
 
 router.get('/', async (req, res) => {
   try {
-    res.status(200).json({ msg: 'ok' });
+    res.status(200).json({ msg: 'mobile ok' });
   } catch (err) {
     console.error(err);
     res.sendStatus(500);
