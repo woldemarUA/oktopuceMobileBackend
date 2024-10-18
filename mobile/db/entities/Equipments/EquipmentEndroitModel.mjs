@@ -15,7 +15,12 @@ export class EquipmentEndroitModel extends Model {
 
   static async getEndroitOptions() {
     const queryOptions = {
-      attributes: [['id', 'value'], ['name', 'label'], 'produit_id'],
+      attributes: [
+        ['id', 'value'],
+        ['name', 'label'],
+        'produit_id',
+        'is_location',
+      ],
     };
     const response = await this.findAll(queryOptions);
     return response.map((res) => res.dataValues);
