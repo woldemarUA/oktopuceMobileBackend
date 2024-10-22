@@ -136,7 +136,7 @@ EquipmentsModel.init(
     },
     equipment_type_id: {
       type: DataTypes.BIGINT.UNSIGNED,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'equipment_types',
         key: 'id',
