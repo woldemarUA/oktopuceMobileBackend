@@ -169,7 +169,7 @@ EquipmentsModel.init(
     },
     remote_control_number: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     gas_weight: {
       type: DataTypes.DOUBLE,
