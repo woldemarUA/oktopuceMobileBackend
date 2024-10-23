@@ -21,6 +21,7 @@ export class EquipmentGasTypesModel extends Model {
       attributes: [
         ['id', 'value'],
         ['name', 'label'],
+        ['global_warming_potential', 'potentiel'],
       ],
     };
 
