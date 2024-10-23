@@ -20,7 +20,7 @@ export class EquipmentGasTypesModel extends Model {
     const queryOptions = {
       attributes: [
         ['id', 'value'],
-        ['name', 'value'],
+        ['name', 'label'],
       ],
     };
 
