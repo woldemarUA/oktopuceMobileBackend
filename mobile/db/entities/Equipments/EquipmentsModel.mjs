@@ -234,6 +234,7 @@ EquipmentsModel.init(
     },
     finalites: {
       type: DataTypes.VIRTUAL,
+      allowNull: true,
       get() {
         return {
           is_plancher_chauffant: this.getDataValue('is_plancher_chauffant'),
