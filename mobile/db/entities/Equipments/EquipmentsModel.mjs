@@ -232,29 +232,7 @@ EquipmentsModel.init(
         key: 'id',
       },
     },
-    finalites: {
-      type: DataTypes.VIRTUAL,
-      allowNull: true,
-      get() {
-        return {
-          is_plancher_chauffant: this.getDataValue('is_plancher_chauffant'),
-          is_plancher_raffraichssant: this.getDataValue(
-            'is_plancher_raffraichssant'
-          ),
-          is_radiateurs: this.getDataValue('is_radiateurs'),
-          ventilo_convecteurs: this.getDataValue('ventilo_convecteurs'),
-        };
-      },
-      set(value) {
-        this.setDataValue('is_plancher_chauffant', value.is_plancher_chauffant);
-        this.setDataValue(
-          'is_plancher_raffraichssant',
-          value.is_plancher_raffraichssant
-        );
-        this.setDataValue('is_radiateurs', value.is_radiateurs);
-        this.setDataValue('ventilo_convecteurs', value.ventilo_convecteurs);
-      },
-    },
+
     created_at: {
       type: DataTypes.DATE, // Reflecting TIMESTAMP
       allowNull: true,
