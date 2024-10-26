@@ -24,6 +24,7 @@ import { EquipmentGasTypesModel } from '../entities/Equipments/EquipmentGasTypes
 import { EquipmentBrandsModel } from '../entities/Equipments/EqipmentBrandsModel.mjs';
 import { EquipmentExtTypesModel } from '../entities/Equipments/EquipmentExtTypesModel.mjs';
 import { EquipmentIntTypesModel } from '../entities/Equipments/EquipmentIntTypesModel.mjs';
+import { FinalitesModel } from '../entities/Equipments/FInalitesModel.mjs';
 
 // Equipments Associations
 
@@ -351,6 +352,7 @@ const db = {
   EquipmentBrandsModel,
   EquipmentExtTypesModel,
   EquipmentIntTypesModel,
+  FinalitesModel,
 };
 
 // Sync all models

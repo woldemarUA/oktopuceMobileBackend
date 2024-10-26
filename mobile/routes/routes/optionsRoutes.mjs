@@ -1,6 +1,5 @@
 import express from 'express';
 import db from '../../db/associations/associationsMobile.mjs';
-import { EquipmentsModel } from '../../db/entities/Equipments/EquipmentsModel.mjs';
 
 export const optionsRouter = express.Router();
 
@@ -175,7 +174,10 @@ optionsRouter.get('/int-types', async (req, res) => {
 
 optionsRouter.get('/finalites', async (req, res) => {
   try {
-    const options = db.EquipmentsModel.getFinalitiesFieldNames();
+    const options = await db.FinalitesModel.findAll({
+      attributes: ['label', 'value'],
+    });
+
     res.status(200).json({ msg: 'ok', options });
   } catch (error) {
     console.error(error);
