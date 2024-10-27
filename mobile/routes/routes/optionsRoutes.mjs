@@ -3,6 +3,39 @@ import db from '../../db/associations/associationsMobile.mjs';
 
 export const optionsRouter = express.Router();
 
+export const regroupItems = (options, name) => {
+  const regroup = {};
+
+  for (const item of options) {
+    if (!regroup[item[name]]) {
+      regroup[item[name]] = [];
+      regroup[item[name]].push(item);
+    } else {
+      regroup[item[name]].push(item);
+    }
+  }
+
+  return regroup;
+};
+
+optionsRouter.get('/product_parametrage', async (req, res) => {
+  try {
+    const product = await db.EquipmentProduitModel.getProductOptions();
+    const endroit_db = await db.EquipmentEndroitModel.getEndroitOptions();
+    const endroit = regroupItems(endroit_db, 'produit_id');
+    const equipment_db = await db.EquipmentTypesModel.getEquipmentTypes();
+    const equipment = regroupItems(equipment_db, 'endroit_id');
+    res
+      .status(200)
+      .json({ msg: 'ok', options: { product, endroit, equipment } });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ msg: 'Internal Server Error', error: error.message });
+  }
+});
+
 // parent_equipment_id
 
 optionsRouter.get('/parent', async (req, res) => {
