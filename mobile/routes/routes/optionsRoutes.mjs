@@ -20,14 +20,15 @@ export const regroupItems = (options, name) => {
 
 optionsRouter.get('/product_parametrage', async (req, res) => {
   try {
-    const product = await db.EquipmentProduitModel.getProductOptions();
+    const productOptions = await db.EquipmentProduitModel.getProductOptions();
     const endroit_db = await db.EquipmentEndroitModel.getEndroitOptions();
-    const endroit = regroupItems(endroit_db, 'produit_id');
+    const endroitOptions = regroupItems(endroit_db, 'produit_id');
     const equipment_db = await db.EquipmentTypesModel.getEquipmentTypes();
-    const equipment = regroupItems(equipment_db, 'endroit_id');
-    res
-      .status(200)
-      .json({ msg: 'ok', options: { product, endroit, equipment } });
+    const equipmentOptions = regroupItems(equipment_db, 'endroit_id');
+    res.status(200).json({
+      msg: 'ok',
+      options: { productOptions, endroitOptions, equipmentOptions },
+    });
   } catch (error) {
     console.error(error);
     res
